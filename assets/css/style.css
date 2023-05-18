@@ -231,13 +231,13 @@ h6 {
   height: 100vh;
   background: url("../img/hero-bg.webp");
   /* background-size: cover; */
-  background-position: 230% 0%;
-  background-size: contain;
+  background-position: 100% 0%;
+  background-size: cover;
 }
 @media(max-width:767px){
   #hero {
     background-size: cover;
-    background-position: 180% 0%;
+    background-position: 210% 0%;
   }
 }
 
