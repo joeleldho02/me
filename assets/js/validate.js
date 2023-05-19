@@ -42,7 +42,8 @@ const setSuccess = element => {
 };
 
 const isValidEmail = email => {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    //const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const re =/[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}/;
     return re.test(String(email).toLowerCase());
 }
 
@@ -109,12 +110,11 @@ form.addEventListener('submit', e => {
   e.preventDefault()
   if (validateInputs()) {
     setVisible('loading');
-    setVisible('sent-message');
     fetch(scriptURL, { method: 'POST', body: new FormData(form) })
       .then(response => {
-        sentMessage.innerHTML = "Your message has been sent succesfully. Thank you!"
+        setVisible('sent-message');
         setTimeout(function () {
-          sentMessage.innerHTML = ""
+          setHide('sent-message');
         }, 3000)
         setHide('loading');
         form.reset()
