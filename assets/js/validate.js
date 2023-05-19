@@ -55,7 +55,7 @@ function validateInputs() {
     const msgValue = msg.value.trim();
 
     if(usernameValue === '') {
-      setError(username, 'Name is required');
+      setError(username, 'Please enter your name');
       username.focus();
       return false;
     } else {
@@ -63,7 +63,7 @@ function validateInputs() {
     }
 
     if(mobileValue === '') {
-      setError(mobile, 'Password is required');
+      setError(mobile, 'Please enter mobile number');
       mobile.focus();
       return false;
     } else if (mobileValue.length < 10 ) {
@@ -75,7 +75,7 @@ function validateInputs() {
     }
 
     if(emailValue === '') {
-      setError(email, 'Email is required');
+      setError(email, 'Please enter your email');
       email.focus();
       return false;
     } else if (!isValidEmail(emailValue)) {
